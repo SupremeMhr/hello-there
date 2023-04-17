@@ -28,3 +28,128 @@ start=time.time()
 result=a1+a2
 print("calculation on numpy arrays",time.time()-start)
 
+import numpy as np
+mylist=[1,2,3]
+print(mylist)
+print(type(mylist))
+print("----------")
+myarr=np.array(mylist)
+print(myarr)
+print(type(myarr))
+
+np.arange(0,10)
+
+np.zeros(5)
+
+np.ones((4,4))
+
+np.linspace(0,10,3)
+
+np.random.rand(2)#all number lies between 0 to 1
+
+np.random.randint(10,100,10)
+
+np.random.seed(42)#set a particular set of random numbers
+np.random.rand(4)
+
+np.random.ranf(5)#flaoting point values 
+
+np.random.uniform(1,100)#generates a single random float number in 
+
+np.random.uniform(1,200,size=4)#generates 4 random number in the 
+
+import numpy as np
+var=np.array([[1,2],[1,2]])
+print(var)
+print("the shape of an aarray is:",var.shape)
+print("dimension of an array is:",var.ndim,"dimension")
+
+#now if i want to reshape
+#this case to work var1(1,7)should have same element as var1.reshape(3,2)
+var1=np.arange(1,7)
+var1=var1.reshape(3,2)
+var1
+print("the shape of the new array is",var1.shape)
+print("the dimension is",var1.ndim)
+
+arr=np.arange(0,25).reshape(5,5)
+print()
+print("the sum of the array is:",arr.sum())
+print()
+print("sum",arr.sum(axis=0))#row is represented by axis=0:peraform the operation across rows
+print("sum",arr.sum(axis=1))#perform the operation across column
+
+#1
+import numpy as np
+
+#2
+var=np.array([0]*10)
+print(var)
+
+#3
+var=np.array([1]*10)
+print(var)
+
+#4
+var=np.array([5]*10)
+print(var)
+
+#5
+var=np.array(range(10,51))
+print(var)
+
+#6
+var=np.arange(0,9).reshape(3,3)
+print(var)
+
+#7
+np.eye(3)
+
+#8
+np.random.rand(2)
+
+#9
+var=np.arange(0,100).reshape(10,10)
+var=var/100
+print(var)
+
+#10
+arr=np.arange(1,26).reshape(5,5)
+print(arr)
+
+#11
+arr=np.arange(1,26).reshape(5,5)
+print(arr[2:,1:])
+
+#12
+arr=np.arange(1,26).reshape(5,5)
+print(arr[0:3,1:2])
+
+#13
+arr=np.arange(1,26).reshape(5,5)
+print(arr[3:,0:])
+
+#14
+arr=np.arange(1,26).reshape(5,5)
+print(arr)
+print(arr.sum())
+
+#15
+arr=np.arange(0,16).reshape(4,4)
+a=arr.sum(axis=1)
+print(a)
+
+#16
+arr=np.arange(0,16).reshape(4,4)
+a=arr.sum(axis=0)
+print(a)
+
+
+#17
+np.random.seed(50)
+a=np.random.rand()
+print(a)
+
+
+
+
