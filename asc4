@@ -1,0 +1,141 @@
+#Q1
+
+import numpy as np
+
+x = np.array([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15]])
+print(len(x))
+print(x.shape)
+print(x.ndim)
+
+#Q2
+
+y = np.arange(100,200,5)
+y.ravel()
+ynew = y.reshape(4,5)
+print(ynew)
+
+#Q3
+
+my_array = np.array([[11 ,22, 33], [44, 55, 66], [77, 88, 99]])
+
+z = my_array[:,1]
+print(z)
+
+#Q4
+
+my_array = np.array([[54,23,89],[80,12,24],[37,49,71]])
+new_column = np.array([[11],[11],[11]])
+
+delarray = np.delete(my_array, 2, axis=1)
+np.append(delarray, new_column, axis=1)
+
+#Q5
+
+def random_array(size, minVal=0, maxVal=1):
+    newarr = np.zeros(shape=size, dtype=int)
+    for i in range(size):
+        randnum = np.random.randint(minVal, maxVal, 1, dtype=int)
+        newarr[i] = randnum
+    print(newarr)
+        
+
+siz = int(input("Enter size of array: "))
+mnmum = int(input("Enter min random value: "))
+mxmum = int(input("Enter max random value: "))
+
+random_array(siz, mnmum, mxmum)
+
+#Q6
+
+d = {"minimum" : 0, "maximum" : 0, "mean" : 0, "median" : 0}
+
+def analyze(ary):
+    mn = np.mean(ary)
+    med = np.median(ary)
+    small = np.amin(ary)
+    big = np.amax(ary)
+    d["maximum"] = big
+    d["minimum"] = small
+    d["mean"] = mn
+    d["median"] = med
+    print(d)
+
+analyze(np.array([1,5,2,4,3]))
+
+#Q7
+
+import matplotlib.pyplot as plt
+
+def trigonometric_plot(x, plot_type):
+    if plot_type == "sin":
+        plo = np.sin(x)
+        plt.plot(plo)
+        plt.show
+    elif plot_type == "cos":
+        plo = np.cos(x)
+        plt.plot(plo)
+        plt.show
+    elif plot_type == "tan":
+        plo = np.tan(x)
+        plt.plot(plo)
+        plt.show
+    else:
+        print("Wrong input")
+
+my_array = np.linspace(-5,5,75)
+
+plttype = input("Enter Sin, Cos or Tan: ")
+plttype.lower()
+
+trigonometric_plot(my_array, plttype)
+
+#Q8
+
+import pandas as pd
+
+df = pd.read_csv("weight_height_data (1).csv")
+df.head()
+
+yaxis = df['Height']
+xaxis = df['Weight']
+plt.scatter(xaxis, yaxis)
+plt.ylabel = "Height"
+plt.xlabel = "Weight"
+plt.show()
+
+#Q9
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("weight_height_data (1).csv")
+
+print(df)
+
+hei = []
+for i in df['Height']:
+    j = i
+    ht = float(j) * 0.0254
+    hei.append(ht)
+    
+wei = []
+for i in df['Weight']:
+    j = i
+    wt = float(j) * 0.4535
+    wei.append(wt)
+    
+bmi = []
+
+for i in range(len(df)):
+    bmi.append(wei[i] / hei[i] ** 2)
+    
+df["BMI"] = bmi
+
+print(df)
+
+#Q10
+
+meanpanda = df['BMI'].mean()
+print("Average BMI = ", meanpanda)
+
+
