@@ -1,4 +1,4 @@
-#Q1
+#Q1 1. Create a 3 X 5 integer array (any values) and print its attributes (length, size, dimensions).
 
 import numpy as np
 
@@ -7,21 +7,26 @@ print(len(x))
 print(x.shape)
 print(x.ndim)
 
-#Q2
+#Q2 2. Using NumPy Create a 4 X 5 integer array from a range between 100 to 200 such that the
+difference between each element is 5.
 
 y = np.arange(100,200,5)
 y.ravel()
 ynew = y.reshape(4,5)
 print(ynew)
 
-#Q3
+#Q3 3. Given the following Numpy array:
+my_array = np.array([[11 ,22, 33], [44, 55, 66], [77, 88, 99]]) ,
+Write a Python syntax to return array of items in the second column from all rows. Your code
+should return the following output: [22 55 88]
 
 my_array = np.array([[11 ,22, 33], [44, 55, 66], [77, 88, 99]])
 
 z = my_array[:,1]
 print(z)
 
-#Q4
+#Q4 4. Delete the third column from the given array my_array and insert the following new_column
+in its place.
 
 my_array = np.array([[54,23,89],[80,12,24],[37,49,71]])
 new_column = np.array([[11],[11],[11]])
@@ -29,7 +34,9 @@ new_column = np.array([[11],[11],[11]])
 delarray = np.delete(my_array, 2, axis=1)
 np.append(delarray, new_column, axis=1)
 
-#Q5
+#Q5 5. Write a function random_array(size, minVal=0, maxVal=1) which returns a NumPy
+array of the given size containing random numbers in the interval given by the default
+arguments minVal and maxVal .
 
 def random_array(size, minVal=0, maxVal=1):
     newarr = np.zeros(shape=size, dtype=int)
@@ -45,7 +52,15 @@ mxmum = int(input("Enter max random value: "))
 
 random_array(siz, mnmum, mxmum)
 
-#Q6
+#Q6 6. Write a function analyze(array) which prints out the minimum , maximum , mean , and
+median values of the provided array and returns a dictionary containing these values under
+appropriate keys.
+Function call:
+
+analyze(np.array([1,5,2,4,3]))
+Expected Output:
+
+{"minimum":1,"maximum":5,"mean":3,"median":3}
 
 d = {"minimum" : 0, "maximum" : 0, "mean" : 0, "median" : 0}
 
@@ -62,7 +77,19 @@ def analyze(ary):
 
 analyze(np.array([1,5,2,4,3]))
 
-#Q7
+#Q7 7. Write a function trigonometric_plot(x, plot_type) , which takes in a NumPy array x
+and gives the plot of either sin(x) , cos(x) or tan(x) depending on the value assigned to
+the plot_type argument. Your function should use the Matplotlib library.
+Input 1:
+my_array = np.linspace(-5,5,75)
+trigonometric_plot(my_array, sin)
+Expected output: Should plot a sin curve
+Input 2:
+my_array = np.linspace(-5,5,75)
+trigonometric_plot(my_array, cos)
+Expected output: Should plot a cosine curve
+
+
 
 import matplotlib.pyplot as plt
 
@@ -89,7 +116,8 @@ plttype.lower()
 
 trigonometric_plot(my_array, plttype)
 
-#Q8
+#Q8 8. Read the given file weight_height_data.csv using Pandas. Plot the given data (height vs
+weight) as a scatterplot using the Matplotlib library.
 
 import pandas as pd
 
@@ -103,7 +131,10 @@ plt.ylabel = "Height"
 plt.xlabel = "Weight"
 plt.show()
 
-#Q9
+#Q9 9. Compute the BMI for each pair of data-points from Q.8 above. Add the BMI values as a new
+column in the existing Pandas DataFrame. BMI = (weight in kgs)/(height in
+meters)^2 (Hint: Be careful with the units!)
+
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -133,7 +164,7 @@ df["BMI"] = bmi
 
 print(df)
 
-#Q10
+#Q10 . Finally, compute the average BMI using the data from Q.9 above.
 
 meanpanda = df['BMI'].mean()
 print("Average BMI = ", meanpanda)
