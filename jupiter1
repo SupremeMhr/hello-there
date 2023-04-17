@@ -1,0 +1,30 @@
+try:
+    import numpy
+except ImportError:
+    print("numpy is not installed")
+    
+    import numpy as np
+    
+    import sys
+import time
+
+lst=range(1000)
+print(sys.getsizeof(1)*len(lst))
+
+ar=np.arange(1000)
+print(ar.size*ar.itemsize)
+#or
+print(ar.nbytes)
+
+v=1000000
+l1=range(v)
+l2=range(v)
+a1=np.arange(v)
+a2=np.arange(v)
+start=time.time()#returns the current time in second
+result=[(x+y) for x,y in zip(l1,l2)]
+print("calculation on list",time.time()-start)
+start=time.time()
+result=a1+a2
+print("calculation on numpy arrays",time.time()-start)
+
